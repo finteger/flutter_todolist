@@ -62,10 +62,10 @@ flutter:
   assets:
   - assets/
 
-fonts:
-  - family: Caveat
-    fonts:
-      - asset: fonts/Caveat-Regular.ttf
+  fonts:
+    - family: Caveat
+      fonts:
+        - asset: assets/Caveat-Regular.ttf
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

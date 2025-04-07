@@ -26,6 +26,14 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: [
             Expanded(child: Image.asset('assets/rdplogo.png', height: 80)),
+            Text(
+              'RDP Daily Planner',
+              style: TextStyle(
+                fontFamily: 'Caveat',
+                fontSize: 32,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
