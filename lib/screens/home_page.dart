@@ -162,8 +162,24 @@ Widget buildTaskList(tasks) {
     physics: NeverScrollableScrollPhysics(),
     itemCount: tasks.length,
     itemBuilder: (context, index) {
+      final task = tasks[index];
+
       return ListTile(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        leading: Icon(
+          task['completed'] ? Icons.check_circle : Icons.circle_outlined
+        ),
+        title: Text(
+          task['name'],
+          style: TextStyle(
+            decoration: task['completed'] ? TextDecoration.lineThrough : null,
+            fontSize: 22,
+          ),
+        ),
+        trailing: Row(children: [
+            Checkbox(),
+            IconButton(),
+        ],)
       );
     },
   );
