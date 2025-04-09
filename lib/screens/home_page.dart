@@ -66,6 +66,30 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  //Update the completion status of the task in Firestore & locally
+  Future<void> updateTask(int index, bool completed) async {
+    final task = tasks[index];
+    await db
+          .collection('tasks')
+          .doc(task['id'])
+          .update({'completed': completed});
+
+    setState(() {
+      tasks[index]['completed'] = completed;
+    });
+  }
+  
+  //Delete the task from Firestore & locally
+  Future<void> removeTasks(int index) async {
+     final task = tasks[index];
+     await db.collection('tasks').doc(task['id']).delete();
+
+     setState(() {
+       tasks.removeAt(index);
+     });
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
